@@ -1,0 +1,23 @@
+name = "nostr-bot"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+# WebSocket接続を有効化
+[env.production]
+compatibility_flags = [ "nodejs_compat" ]
+
+[triggers]
+crons = [
+  "0 7 * * *",   # 午前7時0分 (JST) = 22:00 UTC前日
+  "0 9 * * *",   # 午前9時0分 (JST) = 00:00 UTC
+  "0 11 * * *",  # 午前11時0分 (JST) = 02:00 UTC
+  "0 17 * * *",  # 午後5時0分 (JST) = 08:00 UTC
+  "30 17 * * *", # 午後5時30分 (JST) = 08:30 UTC
+]
+
+[vars]
+NOSTR_RELAYS = "wss://relay.damus.io,wss://nos.lol"
+
+# デバッグ用の追加設定
+[observability]
+enabled = true
