@@ -110,9 +110,9 @@ export default {
       let message = 'Hello from Nostr bot!';
 
       const messagesByTime = {
-        '22:0': 'Wake your ass up. Let go, be free, do you have fun.',
+        '22:0': 'Wake your ass up!',
         '0:0': 'I have one question only. Are you ready to outwork today?',
-        '2:0': 'If you are still sleeping, get your ass up now!',
+        '2:0': 'If you are still sleeping, get your ass up!',
         '8:0': 'Lead by example. Take your neighbors with you!',
         '8:30': 'It\'s only 30 mins left in 24 hrs day. Stay low, stay low!'
       };
