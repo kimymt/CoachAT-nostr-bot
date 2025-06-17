@@ -16,7 +16,7 @@ crons = [
 ]
 
 [vars]
-NOSTR_RELAYS = "wss://relay.damus.io,wss://nos.lol,wss://relay-jp.nostr.wirednet.jp/"
+NOSTR_RELAYS = "wss://relay.damus.io,wss://nos.lol"
 
 # デバッグ用の追加設定
 [observability]
