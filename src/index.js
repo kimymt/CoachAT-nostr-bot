@@ -102,27 +102,41 @@ export default {
       
       console.log('Using relays:', relayUrls);
       
-      // スケジュールされた時刻に基づいてメッセージを決定
+      // スケジュールされた時刻に基づいてメッセージを決定（JST変換）
       const scheduledDate = new Date(event.scheduledTime);
-      const hourUTC = scheduledDate.getUTCHours();
-      const minuteUTC = scheduledDate.getUTCMinutes();
+      const jstDate = new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000); // UTC+9時間でJSTに変換
+      const hourJST = jstDate.getUTCHours();
+      const minuteJST = jstDate.getUTCMinutes();
+      const dayOfWeekJST = jstDate.getUTCDay(); // 0=日曜日, 1=月曜日
+      
+      // timeKeyを先に定義
+      const timeKey = `${hourJST}:${minuteJST}`;
 
-      let message = 'Hello from Nostr bot!';
+      let message = 'Let go, be free, do you have fun? And most importantly, spread love.';
 
-      const messagesByTime = {
-        '22:0': 'Wake your ass up!',
-        '0:0': 'I have one question only. Are you ready to outwork today?',
-        '2:0': 'If you are still sleeping, get your ass up!',
-        '8:0': 'Lead by example. Take your neighbors with you!',
-        '8:30': 'It\'s only 30 mins left in 24 hrs day. Stay low, stay low!'
-      };
+      // 月曜日の特別メッセージ
+      if (hourJST === 6 && minuteJST === 55 && dayOfWeekJST === 1) {
+        message = "Let’s conquer Mondy, conquer this week.";
+      } else {
+        const messagesByTime = {
+          '7:55': 'Wake your ass up!',
+          '8:55': 'I have one question only. Are you ready to outwork today?',
+          '9:55': 'Just checking, just checking',
+          '10:55': 'Confidence take in, doubt let it out. Confidence take in, doubt let it out.',
+          '11:55': 'If you are still sleeping, get your ass up!',
+          '12:55': 'I see you big dog, I see you.',
+          '13:55': 'Excellent work! Next shit is on you. Lead by example.',
+          '14:55': 'One unit, one family, one pleoton. Take your neighbor with you.',
+          '15:55': 'I like your style, I like it. Lock in, lock in.',
+          '16:55': 'Beautiful work! Damn it!'
+        };
 
-      const timeKey = `${hourUTC}:${minuteUTC}`;
-      if (messagesByTime[timeKey]) {
-        message = messagesByTime[timeKey];
+        if (messagesByTime[timeKey]) {
+          message = messagesByTime[timeKey];
+        }
       }
 
-      console.log(`Posting message for ${timeKey}: ${message}`);
+      console.log(`Posting message for JST ${timeKey}: ${message}`);
 
       // Nostrイベントを作成
       const eventTemplate = {

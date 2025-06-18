@@ -8,11 +8,7 @@ compatibility_flags = [ "nodejs_compat" ]
 
 [triggers]
 crons = [
-  "0 22 * * *",  # 午前7時0分 (JST) = 22:00 UTC前日
-  "0 0 * * *",   # 午前9時0分 (JST) = 00:00 UTC
-  "0 2 * * *",   # 午前11時0分 (JST) = 02:00 UTC
-  "0 8 * * *",   # 午後5時0分 (JST) = 08:00 UTC
-  "30 8 * * *",  # 午後5時30分 (JST) = 08:30 UTC
+  "55 * * * *",  # 毎時55分に実行
 ]
 
 [vars]
