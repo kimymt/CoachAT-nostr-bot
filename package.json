@@ -6,13 +6,18 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "nostr-tools": "^2.7.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241218.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "vitest": "^2.0.0",
     "wrangler": "^4.20.0"
   }
 }
