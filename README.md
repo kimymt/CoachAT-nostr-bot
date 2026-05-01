@@ -64,4 +64,7 @@ To confirm that the configuration was successful, you can list all secrets using
 wrangler secret list
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
