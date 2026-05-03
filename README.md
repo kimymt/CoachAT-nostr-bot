@@ -1,4 +1,7 @@
 # CoachAT-nostr-bot
+
+English | [日本語](README.ja.md)
+
 All contents of this repository are generated using LLMs by non-engineer. Please carefully verify the content and use it at your own responsibility.
 
 ## About
